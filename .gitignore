@@ -1,0 +1,6 @@
+node_modules/
+*.png
+*.pdf
+.DS_Store
+.playwright-cli/
+dist/

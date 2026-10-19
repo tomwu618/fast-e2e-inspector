@@ -1,0 +1,33 @@
+{
+  "name": "fast-e2e-inspector",
+  "version": "1.0.0",
+  "description": "4-layer zero-click E2E & CSS layout verification skill for AI coding agents using static chunk probes and headless Playwright DOM geometry math.",
+  "type": "module",
+  "bin": {
+    "inspect-ui": "./scripts/inspect-ui.mjs"
+  },
+  "scripts": {
+    "inspect": "node ./scripts/inspect-ui.mjs",
+    "check-chunks": "bash ./scripts/check-chunks.sh"
+  },
+  "keywords": [
+    "agent-skill",
+    "claude-code",
+    "antigravity",
+    "cursor",
+    "playwright",
+    "e2e-testing",
+    "css-layout",
+    "headless-browser",
+    "dom-geometry"
+  ],
+  "author": "tomwu618",
+  "license": "MIT",
+  "Repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomwu618/fast-e2e-inspector.git"
+  },
+  "peerDependencies": {
+    "playwright": ">=1.40.0"
+  }
+}
