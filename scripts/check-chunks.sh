@@ -62,7 +62,8 @@ fi
 
 if [[ -n "$BASE_URL" ]]; then
   echo "=== [3/3] Probing HTTP 200 on largest chunks via $BASE_URL ==="
-  find "$DIST_DIR/assets" -type f -name "*.js" -exec ls -S {} + | head -n 5 | while read -r top_chunk; do
+  TOP_CHUNKS=$(find "$DIST_DIR/assets" -type f -name "*.js" -exec ls -S {} + 2>/dev/null || true)
+  sed -n "1,5p" <<< "$TOP_CHUNKS" | while read -r top_chunk; do
     rel="${top_chunk#$DIST_DIR/}"
     expected_size=$(wc -c < "$top_chunk" | tr -d ' ')
     http_code=$(curl -s -o /dev/null -w "%{http_code}" "$BASE_URL/$rel")
