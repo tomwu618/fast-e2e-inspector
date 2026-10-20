@@ -4,10 +4,10 @@
  *
  * Usage:
  *   node scripts/inspect-ui.mjs \
- *     --url "http://10.8.0.72:9020/#/facility/views/elderly-manage/residence-change-form?id=91" \
- *     --parent ".saas-work-content" \
- *     --target ".el-card" \
- *     --occlude ".who-drop" \
+ *     --url "http://localhost:3000/#/orders/detail?id=1001" \
+ *     --parent ".work-content" \
+ *     --target ".detail-card" \
+ *     --occlude ".user-dropdown" \
  *     --token "YOUR_JWT_TOKEN" \
  *     --screenshot "./report.png"
  */

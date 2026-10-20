@@ -95,9 +95,9 @@ Instead of asking *"Does this form look narrower than before?"*, run `inspect-ui
 
 ```bash
 node scripts/inspect-ui.mjs \
-  --url "http://localhost:9020/#/facility/views/elderly-manage/residence-change-form?id=91" \
-  --parent ".saas-work-content" \
-  --target ".el-card" \
+  --url "http://localhost:3000/#/orders/detail?id=1001" \
+  --parent ".work-content" \
+  --target ".detail-card" \
   --token "YOUR_JWT_TOKEN"
 ```
 
@@ -106,8 +106,8 @@ node scripts/inspect-ui.mjs \
 {
   "elapsedMs": 1180,
   "layout": {
-    "parentSelector": ".saas-work-content",
-    "targetSelector": ".el-card",
+    "parentSelector": ".work-content",
+    "targetSelector": ".detail-card",
     "parentRect": { "left": 220, "width": 1700 },
     "targetRect": { "left": 236, "width": 1668 },
     "leftGapPx": 16,
@@ -125,13 +125,13 @@ node scripts/inspect-ui.mjs \
 ```
 
 ### 2. Detect Z-Index & Sticky-Column Occlusion (`document.elementFromPoint`)
-When a top-right account dropdown (`.who-drop`) opens above a data table with fixed columns (`.el-table__fixed-right`), `inspect-ui.mjs` samples coordinates across the dropdown and walks the DOM to expose the exact offending stacking context:
+When a top-right account dropdown (`.user-dropdown`) opens above a data table with fixed columns (`.el-table__fixed-right`), `inspect-ui.mjs` samples coordinates across the dropdown and walks the DOM to expose the exact offending stacking context:
 
 ```bash
 node scripts/inspect-ui.mjs \
-  --url "http://localhost:9020/#/facility/views/contract-manage/index" \
+  --url "http://localhost:3000/#/orders/list" \
   --clickBeforeOcclude ".user-avatar-trigger" \
-  --occlude ".who-drop" \
+  --occlude ".user-dropdown" \
   --token "YOUR_JWT_TOKEN"
 ```
 
@@ -139,7 +139,7 @@ node scripts/inspect-ui.mjs \
 ```json
 {
   "occlusion": {
-    "selector": ".who-drop",
+    "selector": ".user-dropdown",
     "isOccluded": true,
     "targetStackingChain": [
       { "tag": "header", "className": "nav-top", "position": "relative", "zIndex": "10" }

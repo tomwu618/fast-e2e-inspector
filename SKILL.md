@@ -58,7 +58,7 @@ When asked to check if recent changes broke existing page styles compared to a b
 Bypass slow UI login forms and multi-level menu clicking in headless Playwright scripts:
 
 1. **Auth State Injection**: Obtain a token once via `fetch`/`curl` or inject storage state directly via `context.addInitScript()` before navigation.
-2. **Direct URL / Hash Navigation**: Jump straight to deep routes (`page.goto('http://host/#/sub-app/deep/route?id=91')`).
+2. **Direct URL / Hash Navigation**: Jump straight to deep routes (`page.goto('http://localhost:3000/#/orders/detail?id=1001')`).
 3. **Synthetic Native Events**: For special interactions (e.g., middle-mouse click to close tabs, wheel events, drag-and-drop), dispatch native DOM events directly inside `page.evaluate()`:
    ```js
    await page.evaluate((selector) => {
